@@ -766,7 +766,7 @@
     .work-col {
       width: 58%;
       flex-shrink: 0;
-      padding: 34px 44px;
+      padding: 32px 38px;
       display: flex;
       flex-direction: column;
       border-left: 1px solid var(--bl);
@@ -793,7 +793,7 @@
       display: flex;
       flex-direction: column;
       flex: 1;
-      gap: 1rem;
+      gap: .85rem;
     }
 
     .timeline-wrap {
@@ -807,7 +807,7 @@
     .job {
       display: grid;
       grid-template-columns: 1fr auto;
-      padding: 1.35rem 0 1.15rem;
+      padding: 1.1rem 0 1rem;
       border: 0;
       border-top: 1px solid rgba(22, 38, 61, .09);
       border-radius: 0;
@@ -825,7 +825,7 @@
 
     .job-role {
       font-family: 'Anton', sans-serif;
-      font-size: clamp(16px, 1.8vw, 24px);
+      font-size: clamp(15px, 1.6vw, 22px);
       text-transform: uppercase;
       letter-spacing: .02em;
       color: var(--dark);
@@ -834,7 +834,7 @@
 
     .job-co {
       font-family: 'Space Mono', monospace;
-      font-size: 9px;
+      font-size: 8px;
       letter-spacing: .1em;
       text-transform: uppercase;
       color: var(--dark);
@@ -862,12 +862,12 @@
 
     .job-right {
       text-align: right;
-      padding-left: 14px;
+      padding-left: 12px;
     }
 
     .job-yr {
       font-family: 'Space Mono', monospace;
-      font-size: 9px;
+      font-size: 8px;
       color: var(--dark);
       opacity: .74;
       margin-bottom: 8px;
@@ -877,7 +877,7 @@
     .job-stats {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 7px;
       align-items: flex-end;
     }
 
@@ -887,7 +887,7 @@
 
     .jstat {
       font-family: 'Anton', sans-serif;
-      font-size: clamp(20px, 2.2vw, 32px);
+      font-size: clamp(18px, 2vw, 28px);
       color: var(--dark);
       line-height: 1;
       letter-spacing: -.01em;
@@ -895,7 +895,7 @@
 
     .jstat-lbl {
       font-family: 'Space Mono', monospace;
-      font-size: 8px;
+      font-size: 7px;
       letter-spacing: .05em;
       text-transform: uppercase;
       opacity: .75;
@@ -908,14 +908,16 @@
     }
 
     .work-col-foot {
-      margin-top: 18px;
+      margin-top: 16px;
+      display: grid;
+      gap: 10px;
     }
 
     /* Numbers column */
     .nums-col {
       width: 42%;
       flex: 0 0 42%;
-      padding: 34px 44px;
+      padding: 30px 40px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -1051,32 +1053,33 @@
 
     .contact-stack {
       display: grid;
-      gap: 1rem;
+      gap: .8rem;
+      max-width: 24rem;
     }
 
     .contact-lead {
       font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      line-height: 1.8;
+      font-size: 10px;
+      line-height: 1.75;
       opacity: .62;
-      max-width: 42ch;
+      max-width: 38ch;
     }
 
     .contact-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: .8rem;
+      gap: .6rem;
     }
 
     .contact-links {
       display: grid;
-      gap: .75rem;
+      gap: .55rem;
     }
 
     .contact-links a {
       display: grid;
-      gap: .3rem;
-      padding: .95rem 1rem;
+      gap: .25rem;
+      padding: .72rem .9rem;
       border-radius: 0;
       border: 1px solid rgba(242, 237, 230, 0.12);
       background: rgba(255, 255, 255, 0.03);
@@ -1096,7 +1099,7 @@
       display: inline-flex;
       align-items: center;
       gap: .45rem;
-      padding: .85rem 1.05rem;
+      padding: .72rem .96rem;
       border-radius: 0;
       background: rgba(242, 237, 230, 0.08);
       border: 1px solid rgba(242, 237, 230, 0.14);
@@ -1120,8 +1123,8 @@
       gap: .55rem;
       color: var(--light);
       opacity: .88;
-      line-height: 1.65;
-      font-size: .98rem;
+      line-height: 1.55;
+      font-size: .92rem;
     }
 
     .contact-note strong {
@@ -1132,7 +1135,7 @@
       display: grid;
       gap: 1rem;
       align-content: start;
-      padding: 1.6rem;
+      padding: 1.25rem;
       border-radius: 0;
       border: 1px solid rgba(242, 237, 230, 0.12);
       background: rgba(255, 255, 255, 0.03);
@@ -1140,16 +1143,13 @@
 
     .contact-qr-title {
       font-family: 'Anton', sans-serif;
-      font-size: clamp(20px, 2vw, 28px);
+      font-size: clamp(18px, 1.7vw, 24px);
       text-transform: uppercase;
       letter-spacing: -.01em;
     }
 
     .contact-qr-copy {
-      font-size: .96rem;
-      line-height: 1.7;
-      color: var(--light);
-      opacity: .8;
+      display: none;
     }
 
     .qr-mark {
@@ -1187,7 +1187,7 @@
 
     .contact-links a span {
       font-family: 'Anton', sans-serif;
-      font-size: clamp(16px, 1.4vw, 20px);
+      font-size: clamp(14px, 1.2vw, 17px);
       letter-spacing: -.01em;
     }
 
@@ -1853,6 +1853,8 @@
 
           <div class="work-col-foot">
             <a href="./Pranay_Shah_Resume_2_0.pdf" target="_blank" class="btn" download>Download full resume →</a>
+            <a href="https://github.com/pranay-shah-live/portfolio/blob/main/Pranay_Shah_Resume_2_0.pdf" target="_blank"
+              rel="noopener noreferrer" class="btn">Open resume on GitHub →</a>
           </div>
         </div>
 
@@ -1952,7 +1954,7 @@
                 <div id="qr-code"></div>
                 <div class="qr-brand">PS</div>
               </div>
-              <a class="btn btnl" href="./pranay-shah.vcf" download style="margin-top:8px;">Save contact →</a>
+              <a class="btn btnl" href="./pranay-shah.vcf" download style="margin-top:8px;">Download contact →</a>
             </div>
           </div>
         </div>
