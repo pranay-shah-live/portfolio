@@ -818,6 +818,11 @@
       box-shadow: none;
     }
 
+    .job-left {
+      display: grid;
+      gap: .4rem;
+    }
+
     .job.in {
       opacity: 1;
       transform: translateY(0);
@@ -948,12 +953,9 @@
     }
 
     .job-client-row {
-      grid-column: 1 / -1;
       display: grid;
-      gap: .55rem;
-      margin-top: .8rem;
-      padding-top: .75rem;
-      border-top: 1px solid rgba(22, 38, 61, .08);
+      gap: .35rem;
+      margin-top: .25rem;
     }
 
     .job-client-label {
@@ -961,7 +963,7 @@
       font-size: 8px;
       letter-spacing: .2em;
       text-transform: uppercase;
-      opacity: .42;
+      opacity: .5;
     }
 
     .job-client-tags {
@@ -1004,6 +1006,8 @@
       opacity: 0;
       transform: translateY(10px);
       animation: logoIn 700ms var(--ease) forwards paused;
+      transition: transform .22s var(--ease), opacity .22s var(--ease), filter .22s var(--ease);
+      filter: saturate(.95);
     }
 
     @keyframes logoIn {
@@ -1031,8 +1035,10 @@
       content: none;
     }
 
-    .logo-chip:hover::after {
+    .logo-chip:hover {
+      transform: translateY(-4px) scale(1.05);
       opacity: 1;
+      filter: saturate(1.08);
     }
 
     .logo-chip.inview {
@@ -1729,8 +1735,17 @@
               <div class="job-left">
                 <div class="job-role">Head of Marketing</div>
                 <div class="job-co">India Signing Hands</div>
-                <div class="job-tags"><span class="jt">Biz Dev</span><span class="jt">Growth</span><span
-                    class="jt">Product &amp; Revenue</span><span class="jt">Project Mgmt</span></div>
+                <div class="job-client-row">
+                  <div class="job-client-label">Leadership areas:</div>
+                  <div class="job-client-tags"><span class="jt">Biz Dev</span><span class="jt">Growth</span><span
+                      class="jt">Product &amp; Revenue</span><span class="jt">Project Mgmt</span></div>
+                </div>
+                <div class="job-client-row">
+                  <div class="job-client-label">Key clients onboarded:</div>
+                  <div class="job-client-tags"><span class="jt">Google</span><span class="jt">RBI</span><span
+                      class="jt">HDFC Bank</span><span class="jt">Axis Bank</span><span class="jt">JioStar</span><span
+                      class="jt">Adani Airports</span><span class="jt">SonyLIV</span><span class="jt">Zee5</span></div>
+                </div>
               </div>
               <div class="job-right">
                 <div class="job-yr">2023 — Present</div>
@@ -1749,12 +1764,6 @@
                   </div>
                 </div>
               </div>
-              <div class="job-client-row">
-                <div class="job-client-label">Key clients onboarded</div>
-                <div class="job-client-tags"><span class="jt">Google</span><span class="jt">RBI</span><span
-                    class="jt">HDFC Bank</span><span class="jt">Axis Bank</span><span class="jt">JioStar</span><span
-                    class="jt">Adani Airports</span><span class="jt">SonyLIV</span><span class="jt">Zee5</span></div>
-              </div>
             </div>
 
             <!-- SHF -->
@@ -1762,8 +1771,16 @@
               <div class="job-left">
                 <div class="job-role">Fundraising Head</div>
                 <div class="job-co">Signing Hands Foundation</div>
-                <div class="job-tags"><span class="jt">CSR</span><span class="jt">NGO Partnerships</span><span
-                    class="jt">Gov Relations</span></div>
+                <div class="job-client-row">
+                  <div class="job-client-label">Leadership areas:</div>
+                  <div class="job-client-tags"><span class="jt">CSR</span><span class="jt">NGO Partnerships</span><span
+                      class="jt">Gov Relations</span></div>
+                </div>
+                <div class="job-client-row">
+                  <div class="job-client-label">Key clients onboarded:</div>
+                  <div class="job-client-tags"><span class="jt">Pidilite</span><span class="jt">Axis Bank</span><span
+                      class="jt">Kotak Bank</span><span class="jt">CSR partners</span></div>
+                </div>
               </div>
               <div class="job-right">
                 <div class="job-yr">2023 — Present</div>
@@ -1782,11 +1799,6 @@
                   </div>
                 </div>
               </div>
-              <div class="job-client-row">
-                <div class="job-client-label">Key clients onboarded</div>
-                <div class="job-client-tags"><span class="jt">Pidilite</span><span class="jt">Axis Bank</span><span
-                    class="jt">Kotak Bank</span><span class="jt">CSR partners</span></div>
-              </div>
             </div>
 
             <!-- Shiamak -->
@@ -1794,8 +1806,16 @@
               <div class="job-left">
                 <div class="job-role">Sr. Marketing Executive</div>
                 <div class="job-co">Shiamak Davar Performing Arts</div>
-                <div class="job-tags"><span class="jt">B2C P&amp;L</span><span class="jt">Franchising</span><span
-                    class="jt">Marketing &amp; PR</span><span class="jt">Sponsorships</span></div>
+                <div class="job-client-row">
+                  <div class="job-client-label">Leadership areas:</div>
+                  <div class="job-client-tags"><span class="jt">B2C P&amp;L</span><span class="jt">Franchising</span><span
+                      class="jt">Marketing &amp; PR</span><span class="jt">Sponsorships</span></div>
+                </div>
+                <div class="job-client-row">
+                  <div class="job-client-label">Key clients onboarded:</div>
+                  <div class="job-client-tags"><span class="jt">BookMyShow</span><span class="jt">Landmark Group</span><span
+                      class="jt">Fitpass</span><span class="jt">Coromandel</span></div>
+                </div>
               </div>
               <div class="job-right">
                 <div class="job-yr">2019 — 2023</div>
@@ -1814,11 +1834,6 @@
                   </div>
                 </div>
               </div>
-              <div class="job-client-row">
-                <div class="job-client-label">Key clients onboarded</div>
-                <div class="job-client-tags"><span class="jt">BookMyShow</span><span class="jt">Landmark Group</span><span
-                    class="jt">Fitpass</span><span class="jt">Coromandel</span></div>
-              </div>
             </div>
 
             <!-- Vectorr -->
@@ -1826,8 +1841,16 @@
               <div class="job-left">
                 <div class="job-role">Marketing Manager</div>
                 <div class="job-co">Vectorr.in</div>
-                <div class="job-tags"><span class="jt">Sales Pipeline</span><span class="jt">Lead Gen</span><span
-                    class="jt">Content</span><span class="jt">Startup Ops</span></div>
+                <div class="job-client-row">
+                  <div class="job-client-label">Leadership areas:</div>
+                  <div class="job-client-tags"><span class="jt">Sales Pipeline</span><span class="jt">Lead Gen</span><span
+                      class="jt">Content</span><span class="jt">Startup Ops</span></div>
+                </div>
+                <div class="job-client-row">
+                  <div class="job-client-label">Key clients onboarded:</div>
+                  <div class="job-client-tags"><span class="jt">Early-stage founders</span><span class="jt">Coaching
+                      teams</span><span class="jt">Enterprise prospects</span></div>
+                </div>
               </div>
               <div class="job-right">
                 <div class="job-yr">2017 — 2019</div>
@@ -1841,11 +1864,6 @@
                     <div class="jstat-lbl">Revenue growth</div>
                   </div>
                 </div>
-              </div>
-              <div class="job-client-row">
-                <div class="job-client-label">Key clients onboarded</div>
-                <div class="job-client-tags"><span class="jt">Early-stage founders</span><span class="jt">Coaching
-                    teams</span><span class="jt">Enterprise prospects</span></div>
               </div>
             </div>
           </div>
