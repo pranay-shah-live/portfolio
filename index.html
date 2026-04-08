@@ -544,10 +544,18 @@
       display: block;
     }
 
-    .p5-sub {
+    .p5-sub,
+    .prob-a,
+    .job-client-label,
+    .contact-links a strong,
+    .contact-links a span {
       font-family: 'Space Mono', monospace;
-      font-size: 14px;
-      line-height: 1.95;
+      font-size: 13px;
+      line-height: 1.85;
+      letter-spacing: .04em;
+    }
+
+    .p5-sub {
       opacity: .66;
       margin-top: 0;
       max-width: 46ch;
@@ -564,8 +572,9 @@
     .problem-copy {
       max-width: 30ch;
       font-family: 'Space Mono', monospace;
-      font-size: 12px;
-      line-height: 1.9;
+      font-size: 13px;
+      line-height: 1.85;
+      letter-spacing: .04em;
       opacity: .64;
       margin-top: 0;
     }
@@ -635,9 +644,6 @@
     }
 
     .prob-a {
-      font-family: 'Space Mono', monospace;
-      font-size: 12px;
-      line-height: 1.95;
       opacity: .82;
       margin-bottom: 18px;
       color: var(--light);
@@ -959,9 +965,6 @@
     }
 
     .job-client-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 8px;
-      letter-spacing: .2em;
       text-transform: uppercase;
       opacity: .5;
     }
@@ -1183,18 +1186,13 @@
 
     .contact-links a strong {
       display: block;
-      font-family: 'Space Mono', monospace;
-      font-size: 8px;
-      letter-spacing: .18em;
       text-transform: uppercase;
       opacity: .55;
       margin-bottom: 0.25rem;
     }
 
     .contact-links a span {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(14px, 1.2vw, 17px);
-      letter-spacing: -.01em;
+      opacity: 1;
     }
 
     .nums-grid {
