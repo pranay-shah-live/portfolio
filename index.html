@@ -235,6 +235,11 @@
       color: var(--dark);
     }
 
+    #hint.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+
     body.ind #hint {
       color: var(--light);
     }
@@ -940,23 +945,19 @@
     }
 
     .work-highlights {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-      margin-bottom: 1rem;
+      display: none;
     }
 
-    .hl-card {
-      border: 1px solid var(--bl);
-      border-radius: 26px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(245, 242, 236, 0.9));
-      padding: 1.2rem 1.15rem;
+    .job-note-row {
       display: grid;
-      gap: 0.9rem;
-      box-shadow: 0 16px 30px rgba(13, 13, 13, 0.06);
+      gap: .55rem;
+      margin-top: .85rem;
+      padding-top: .8rem;
+      border-top: 1px solid rgba(22, 38, 61, .08);
+      grid-column: 1 / -1;
     }
 
-    .hl-label {
+    .job-note-label {
       font-family: 'Space Mono', monospace;
       font-size: 8px;
       letter-spacing: .2em;
@@ -964,19 +965,13 @@
       opacity: .42;
     }
 
-    .hl-title {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(18px, 1.9vw, 24px);
-      line-height: .96;
-      text-transform: uppercase;
-      letter-spacing: -.01em;
-    }
-
-    .hl-copy {
-      color: var(--muted);
-      font-size: .96rem;
-      line-height: 1.65;
-      max-width: 28ch;
+    .job-note-copy {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      line-height: 1.8;
+      color: var(--dark);
+      opacity: .78;
+      max-width: 42ch;
     }
 
     .logo-section {
@@ -994,25 +989,21 @@
     }
 
     .logo-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0.7rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      gap: .7rem 1.1rem;
     }
 
     .logo-chip {
       position: relative;
-      min-height: 3.15rem;
-      border-radius: 18px;
-      border: 1px solid rgba(22, 38, 61, 0.08);
-      background: rgba(255, 255, 255, 0.72);
-      display: grid;
-      place-items: center;
-      padding: 0.6rem 0.8rem;
-      color: var(--ink);
-      text-align: center;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: .08em;
+      padding: 0;
+      color: var(--dark);
+      text-align: left;
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(22px, 2.2vw, 40px);
+      line-height: .9;
+      letter-spacing: -.02em;
       text-transform: uppercase;
       opacity: 0;
       transform: translateY(10px);
@@ -1041,13 +1032,7 @@
     .logo-chip:nth-child(8) { animation-delay: 500ms; }
 
     .logo-chip::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background: linear-gradient(135deg, rgba(47, 122, 98, 0.08), transparent 60%);
-      opacity: 0;
-      transition: opacity .25s ease;
+      content: none;
     }
 
     .logo-chip:hover::after {
@@ -1098,7 +1083,7 @@
       display: grid;
       gap: .3rem;
       padding: .95rem 1rem;
-      border-radius: 18px;
+      border-radius: 0;
       border: 1px solid rgba(242, 237, 230, 0.12);
       background: rgba(255, 255, 255, 0.03);
       text-decoration: none;
@@ -1118,7 +1103,7 @@
       align-items: center;
       gap: .45rem;
       padding: .85rem 1.05rem;
-      border-radius: 999px;
+      border-radius: 0;
       background: rgba(242, 237, 230, 0.08);
       border: 1px solid rgba(242, 237, 230, 0.14);
       color: var(--light);
@@ -1154,7 +1139,7 @@
       gap: 1rem;
       align-content: start;
       padding: 1.6rem;
-      border-radius: 26px;
+      border-radius: 0;
       border: 1px solid rgba(242, 237, 230, 0.12);
       background: rgba(255, 255, 255, 0.03);
     }
@@ -1171,6 +1156,29 @@
       line-height: 1.7;
       color: var(--light);
       opacity: .8;
+    }
+
+    .qr-mark {
+      position: relative;
+      display: inline-block;
+    }
+
+    .qr-brand {
+      position: absolute;
+      inset: 50% auto auto 50%;
+      transform: translate(-50%, -50%);
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      background: var(--light);
+      color: var(--dark);
+      font-family: 'Anton', sans-serif;
+      font-size: 18px;
+      letter-spacing: .08em;
+      line-height: 1;
+      pointer-events: none;
+      box-shadow: 0 0 0 2px var(--light);
     }
 
     .contact-links a strong {
@@ -1192,17 +1200,21 @@
     .nums-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2px;
+      gap: 0;
       background: var(--bl);
     }
 
     .nc {
-      background: var(--light);
-      padding: 24px 20px;
+      background: transparent;
+      padding: 18px 16px 16px;
       min-height: 118px;
       opacity: 0;
       transform: translateY(12px);
-      transition: opacity .5s var(--ease), transform .5s var(--ease), background .28s, box-shadow .28s;
+      transition: opacity .5s var(--ease), transform .5s var(--ease);
+      border-right: 1px solid rgba(22, 38, 61, .08);
+      border-bottom: 1px solid rgba(22, 38, 61, .08);
+      border-radius: 0;
+      box-shadow: none;
     }
 
     .nc.in {
@@ -1211,21 +1223,21 @@
     }
 
     .nc.in:hover {
-      background: var(--dark);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, .15);
-      transform: translateY(-3px) scale(1.02);
+      background: rgba(22, 38, 61, .03);
+      box-shadow: none;
+      transform: translateY(-2px);
     }
 
     .nc.in:hover .nn,
     .nc.in:hover .nn span,
     .nc.in:hover .nl {
-      color: var(--light) !important;
-      opacity: .9;
+      color: var(--dark) !important;
+      opacity: 1;
     }
 
     .nn {
       font-family: 'Anton', sans-serif;
-      font-size: clamp(46px, 5.4vw, 78px);
+      font-size: clamp(40px, 4.8vw, 68px);
       line-height: 1;
       letter-spacing: -.02em;
       display: flex;
@@ -1250,7 +1262,7 @@
       letter-spacing: .12em;
       text-transform: uppercase;
       opacity: .45;
-      margin-top: 8px;
+      margin-top: 10px;
       line-height: 1.35;
       color: var(--dark);
     }
@@ -1281,10 +1293,10 @@
 
     .cbig {
       font-family: 'Anton', sans-serif;
-      font-size: clamp(52px, 8.5vw, 112px);
+      font-size: clamp(46px, 7.2vw, 96px);
       text-transform: uppercase;
       letter-spacing: -.02em;
-      line-height: .88;
+      line-height: .92;
       color: var(--light);
     }
 
@@ -1551,11 +1563,12 @@
         <div class="p5-intro">
           <div>
             <div class="p5-title">
-              <span>Got a problem?</span>
-              <span style="font-style:italic;opacity:.55;">Here&apos;s how I can help</span>
+              <span>The problem</span>
+              <span style="font-style:italic;opacity:.55;">is all too familiar</span>
             </div>
-            <p class="p5-sub">Whether it&apos;s a startup with a real idea but no visibility, a legacy brand losing
-              momentum, or an organisation that needs a steadier hand, here&apos;s where I come in.</p>
+            <p class="p5-sub">Whether it's a startup with a crazy idea but no visibility, a legacy brand slowly fading
+              from sight, a non-profit looking to break some ground, or just someone who needs a collaborator
+              — here's where I come in:</p>
           </div>
           <a class="btn btnl" href="#" onclick="goTo(4);return false;">Let's Talk →</a>
         </div>
@@ -1563,35 +1576,42 @@
           <div class="prob-card" style="transition-delay:0s">
             <div class="prob-num">01</div>
             <div>
-              <div class="prob-q">Revenue needs<br>traction</div>
-              <p class="prob-a">I build and run sales pipelines end to end. Over 9 years, I&apos;ve helped deliver 30%
-                YoY growth and supported three startups scaling from 6 figures to 8 figures.</p>
+              <div class="prob-q">Revenue isn't<br>growing fast enough</div>
+              <p class="prob-a">I build and run full sales pipelines — from lead gen to closing enterprise clients. I've
+                taken two startups from near-zero to crore-level revenue, and grown a third 3× in two years.</p>
             </div>
+            <div class="prob-tags"><span class="ptag">Business Dev</span><span class="ptag">Sales Pipeline</span><span
+                class="ptag">Enterprise Clients</span></div>
           </div>
           <div class="prob-card" style="transition-delay:.1s">
             <div class="prob-num">02</div>
             <div>
-              <div class="prob-q">Your brand is not<br>breaking through</div>
-              <p class="prob-a">I make brand work clearer and more usable, so people see the message and act on it.
-                I&apos;ve led campaigns and strategy for Google, RBI, HDFC Bank, Axis Bank, JioHotstar, Adani
-                Airports, SonyLIV, and Zee5.</p>
+              <div class="prob-q">Your brand is<br>lost in the noise</div>
+              <p class="prob-a">I've built brand strategies and campaign engines for performing arts, social impact, and
+                ed-tech. Not just decks — actual production, distribution, and measurable reach.</p>
             </div>
+            <div class="prob-tags"><span class="ptag">Brand Strategy</span><span class="ptag">Campaigns</span><span
+                class="ptag">Content Production</span></div>
           </div>
           <div class="prob-card" style="transition-delay:.2s">
             <div class="prob-num">03</div>
             <div>
-              <div class="prob-q">Operations are<br>slowing growth</div>
-              <p class="prob-a">I&apos;ve managed a 40+ centre network across India, the US, the UK, Canada, and the
-                UAE, and built the systems, automation, and team structures to keep it moving.</p>
+              <div class="prob-q">Scaling breaks<br>your operations</div>
+              <p class="prob-a">I've managed a 40+ centre network across 5 countries and run the P&amp;L on it. I set up
+                systems, automation, and team structures that hold up as things get bigger and messier.</p>
             </div>
+            <div class="prob-tags"><span class="ptag">Ops &amp; Systems</span><span class="ptag">Automation</span><span
+                class="ptag">P&amp;L</span></div>
           </div>
           <div class="prob-card" style="transition-delay:.3s">
             <div class="prob-num">04</div>
             <div>
-              <div class="prob-q">You need strategy<br>that ships</div>
-              <p class="prob-a">I move between strategy, execution, and stakeholder management without the fluff. That
-                has helped me support 3 Cr fundraising, 1 Cr annual CSR commitments, and 5 Cr sponsorships.</p>
+              <div class="prob-q">You need someone<br>who gets both sides</div>
+              <p class="prob-a">Creative enough to write the brief, commercial enough to own the number. I move between
+                strategy, execution, and stakeholder management without needing a translator in between.</p>
             </div>
+            <div class="prob-tags"><span class="ptag">Strategy</span><span class="ptag">Execution</span><span
+                class="ptag">Collaborator</span></div>
           </div>
         </div>
       </section>
@@ -1735,6 +1755,18 @@
                   </div>
                 </div>
               </div>
+              <div class="job-note-row">
+                <div class="job-note">
+                  <div class="job-note-label">Key clients onboarded</div>
+                  <div class="job-note-copy">Google, RBI, HDFC Bank, Axis Bank, JioStar, Adani Airports, SonyLIV,
+                    Zee5.</div>
+                </div>
+                <div class="job-note">
+                  <div class="job-note-label">Leadership areas</div>
+                  <div class="job-note-copy">Business development, growth strategy, product &amp; revenue, project
+                    management.</div>
+                </div>
+              </div>
             </div>
 
             <!-- SHF -->
@@ -1760,6 +1792,17 @@
                     <div class="jstat">3</div>
                     <div class="jstat-lbl">GOI dept. partnerships</div>
                   </div>
+                </div>
+              </div>
+              <div class="job-note-row">
+                <div class="job-note">
+                  <div class="job-note-label">Key partners onboarded</div>
+                  <div class="job-note-copy">Pidilite, Axis Bank, Kotak Bank, and other CSR stakeholders.</div>
+                </div>
+                <div class="job-note">
+                  <div class="job-note-label">Leadership areas</div>
+                  <div class="job-note-copy">CSR fundraising, government &amp; NGO partnerships, project operations,
+                    advocacy.</div>
                 </div>
               </div>
             </div>
@@ -1789,6 +1832,17 @@
                   </div>
                 </div>
               </div>
+              <div class="job-note-row">
+                <div class="job-note">
+                  <div class="job-note-label">Key partners onboarded</div>
+                  <div class="job-note-copy">BookMyShow, Landmark Group, Fitpass, Coromandel.</div>
+                </div>
+                <div class="job-note">
+                  <div class="job-note-label">Leadership areas</div>
+                  <div class="job-note-copy">B2C P&amp;L, marketing &amp; PR strategy, franchising, event &amp; NGO
+                    sponsorships.</div>
+                </div>
+              </div>
             </div>
 
             <!-- Vectorr -->
@@ -1812,25 +1866,18 @@
                   </div>
                 </div>
               </div>
+              <div class="job-note-row">
+                <div class="job-note">
+                  <div class="job-note-label">Key clients onboarded</div>
+                  <div class="job-note-copy">Early-stage founders, coaching teams, and first enterprise prospects.</div>
+                </div>
+                <div class="job-note">
+                  <div class="job-note-label">Leadership areas</div>
+                  <div class="job-note-copy">Complete sales pipeline, lead generation, content, startup operations.</div>
+                </div>
+              </div>
             </div>
           </div>
-          </div>
-
-          <div class="work-highlights">
-            <div class="hl-card">
-              <div class="hl-label">Key clients onboarded</div>
-              <div class="hl-title">Google, RBI, HDFC Bank, Axis Bank, JioHotstar, Adani Airports, SonyLIV, and
-                Zee5.</div>
-              <div class="hl-copy">Enterprise, media, finance, and public-sector work across brands that needed both
-                trust and execution.</div>
-            </div>
-            <div class="hl-card">
-              <div class="hl-label">Leadership areas</div>
-              <div class="hl-title">Business development, growth strategy, project management, and product &amp;
-                revenue.</div>
-              <div class="hl-copy">The work that sits between the brief, the team, and the number - and has to hold
-                together in the real world.</div>
-            </div>
           </div>
 
           <div class="work-col-foot">
@@ -1874,6 +1921,16 @@
               <div class="logo-chip">Adani Airports</div>
               <div class="logo-chip">SonyLIV</div>
               <div class="logo-chip">Zee5</div>
+              <div class="logo-chip">Pidilite</div>
+              <div class="logo-chip">Kotak Bank</div>
+              <div class="logo-chip">BookMyShow</div>
+              <div class="logo-chip">Landmark Group</div>
+              <div class="logo-chip">Fitpass</div>
+              <div class="logo-chip">Coromandel</div>
+              <div class="logo-chip">Mphasis</div>
+              <div class="logo-chip">Upstox</div>
+              <div class="logo-chip">Amazon</div>
+              <div class="logo-chip">JioStar</div>
             </div>
           </div>
         </div>
@@ -1885,13 +1942,10 @@
         <div class="cl">
           <div class="cbig">
             <span id="ct1" style="transition-delay:0s">Let's</span>
-            <span id="ct2" style="transition-delay:.1s">make it</span>
-            <span id="ct3" style="transition-delay:.2s">happen.</span>
+            <span id="ct2" style="transition-delay:.1s">talk</span>
+            <span id="ct3" style="transition-delay:.2s">business.</span>
           </div>
           <div class="contact-stack">
-            <p class="contact-lead">If you need someone who can move between growth, partnerships, marketing, and
-              operations, I&apos;m easiest to reach by email or phone. I usually help teams that need revenue,
-              structure, or both.</p>
             <div class="contact-actions">
               <a class="contact-btn" href="mailto:pranay.shah@live.com">Email</a>
               <a class="contact-btn" href="tel:+917208684826">Call</a>
@@ -1923,8 +1977,10 @@
           <div class="contact-qr-card">
             <div class="qr-wrap">
               <div class="contact-qr-title">Scan to save contact</div>
-              <div id="qr-code"></div>
-              <div class="contact-qr-copy">Opens my vCard on iPhones and Android.</div>
+              <div class="qr-mark">
+                <div id="qr-code"></div>
+                <div class="qr-brand">PS</div>
+              </div>
               <a class="btn btnl" href="./pranay-shah.vcf" download style="margin-top:8px;">Save contact →</a>
             </div>
           </div>
@@ -1968,6 +2024,7 @@
       dotsEl.querySelectorAll('.db').forEach((d, idx) => d.classList.toggle('on', idx === i));
       pidxEl.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(N).padStart(2, '0');
       document.body.classList.toggle('ind', panels[i].classList.contains('dark'));
+      hintEl.classList.toggle('hide', i >= 3);
     }
 
     function updateProgress() {
@@ -2099,7 +2156,7 @@
         height: 160,
         colorDark: '#0d0d0d',
         colorLight: '#f2ede6',
-        correctLevel: QRCode.CorrectLevel.M
+        correctLevel: QRCode.CorrectLevel.H
       });
     });
   </script>
