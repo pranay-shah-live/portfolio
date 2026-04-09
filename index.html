@@ -892,37 +892,67 @@
 
     /* Right column */
     .nums-col {
-      padding: 28px 36px 26px 34px;
-      display: flex;
-      flex-direction: column;
+      position: relative;
+      padding: 22px 28px 22px 28px;
+      display: grid;
+      grid-template-columns: 1.12fr .88fr;
+      grid-template-areas:
+        "intro intro"
+        "stats stats"
+        "logos logos"
+        "btn btn";
+      gap: 12px 16px;
       justify-content: flex-start;
-      gap: 0;
       min-width: 0;
       border-right: 1px solid rgba(22, 38, 61, .14);
+      background:
+        radial-gradient(circle at top right, rgba(22, 38, 61, .045), transparent 34%),
+        linear-gradient(180deg, rgba(22, 38, 61, .025), transparent 18%);
+      overflow: hidden;
+    }
+
+    .nums-col::before {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border: 1px solid rgba(22, 38, 61, .08);
+      pointer-events: none;
     }
 
     .nums-intro {
-      margin-bottom: 12px;
+      grid-area: intro;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(180px, .95fr);
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 0;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(22, 38, 61, .08);
+      position: relative;
+      z-index: 1;
     }
 
     .nums-title {
       font-family: 'Anton', sans-serif;
-      font-size: clamp(20px, 1.8vw, 28px);
+      font-size: clamp(22px, 1.95vw, 30px);
       text-transform: uppercase;
-      line-height: .95;
+      line-height: .92;
       letter-spacing: -.01em;
       color: var(--dark);
-      margin-bottom: 5px;
+      margin-bottom: 0;
       max-width: 100%;
     }
 
     .nums-sub {
       font-family: 'Space Mono', monospace;
-      font-size: 9px;
-      line-height: 1.5;
+      font-size: 8.5px;
+      line-height: 1.55;
       opacity: .82;
       color: var(--dark);
-      max-width: 76ch;
+      max-width: 100%;
+      padding-left: 16px;
+      border-left: 1px solid rgba(22, 38, 61, .08);
+      align-self: end;
     }
 
     .job-client-row {
@@ -946,24 +976,29 @@
     }
 
     .logo-section {
-      margin-top: .85rem;
+      grid-area: logos;
+      margin-top: 0;
       display: grid;
-      gap: 0.45rem;
+      gap: 0.55rem;
+      padding-top: 10px;
+      border-top: 1px solid rgba(22, 38, 61, .08);
+      position: relative;
+      z-index: 1;
     }
 
     .logo-label {
       font-family: 'Space Mono', monospace;
-      font-size: 7px;
-      letter-spacing: .16em;
+      font-size: 8px;
+      letter-spacing: .14em;
       text-transform: uppercase;
       opacity: .52;
     }
 
     .logo-grid {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-end;
-      gap: .36rem .65rem;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px 10px;
+      align-items: end;
     }
 
     .logo-chip {
@@ -979,8 +1014,32 @@
       opacity: 0;
       transform: translateY(10px);
       animation: logoIn 700ms var(--ease) forwards paused;
-      transition: transform .22s var(--ease), opacity .22s var(--ease), filter .22s var(--ease);
+      transition: transform .22s var(--ease), opacity .22s var(--ease), filter .22s var(--ease), letter-spacing .22s var(--ease);
       filter: saturate(.95);
+      white-space: nowrap;
+    }
+
+    .logo-chip:nth-child(1),
+    .logo-chip:nth-child(5),
+    .logo-chip:nth-child(10),
+    .logo-chip:nth-child(15) {
+      grid-column: span 2;
+    }
+
+    .logo-chip:nth-child(3),
+    .logo-chip:nth-child(8),
+    .logo-chip:nth-child(13),
+    .logo-chip:nth-child(18) {
+      justify-self: end;
+    }
+
+    .logo-chip:nth-child(4),
+    .logo-chip:nth-child(9),
+    .logo-chip:nth-child(14),
+    .logo-chip:nth-child(19) {
+      grid-column: span 2;
+      justify-self: end;
+      text-align: right;
     }
 
     @keyframes logoIn {
@@ -1009,7 +1068,7 @@
     }
 
     .logo-chip:hover {
-      transform: translateY(-4px) scale(1.05);
+      transform: translateY(-3px) scale(1.03);
       opacity: 1;
       filter: saturate(1.08);
     }
@@ -1184,23 +1243,55 @@
     }
 
     .nums-grid {
+      grid-area: stats;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      background: var(--bl);
+      grid-template-columns: 1.2fr .9fr .9fr;
+      grid-template-areas:
+        "big big two"
+        "big big three"
+        "four four four";
+      gap: 10px;
+      background: transparent;
+      position: relative;
+      z-index: 1;
     }
 
     .nc {
-      background: transparent;
-      padding: 16px 14px 14px;
-      min-height: 108px;
+      background: rgba(22, 38, 61, .03);
+      padding: 15px 14px 13px;
+      min-height: 0;
       opacity: 0;
       transform: translateY(12px);
       transition: opacity .5s var(--ease), transform .5s var(--ease);
-      border-right: 1px solid rgba(22, 38, 61, .08);
-      border-bottom: 1px solid rgba(22, 38, 61, .08);
+      border: 1px solid rgba(22, 38, 61, .08);
       border-radius: 0;
       box-shadow: none;
+    }
+
+    .nc:nth-child(1) {
+      grid-area: big;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 220px;
+      background:
+        linear-gradient(135deg, rgba(22, 38, 61, .06), rgba(22, 38, 61, .02)),
+        rgba(22, 38, 61, .03);
+    }
+
+    .nc:nth-child(2) {
+      grid-area: two;
+      min-height: 104px;
+    }
+
+    .nc:nth-child(3) {
+      grid-area: three;
+      min-height: 104px;
+    }
+
+    .nc:nth-child(4) {
+      grid-area: four;
+      min-height: 104px;
     }
 
     .nc.in {
@@ -1223,7 +1314,7 @@
 
     .nn {
       font-family: 'Anton', sans-serif;
-      font-size: clamp(36px, 4.3vw, 60px);
+      font-size: clamp(34px, 4vw, 58px);
       line-height: 1;
       letter-spacing: -.02em;
       display: flex;
@@ -1244,7 +1335,7 @@
 
     .nl {
       font-family: 'Space Mono', monospace;
-      font-size: 9px;
+      font-size: 8px;
       letter-spacing: .12em;
       text-transform: uppercase;
       opacity: .45;
@@ -1360,16 +1451,19 @@
     }
 
     .resume-btn-right {
+      grid-area: btn;
       width: max-content;
-      max-width: 170px;
-      padding: 10px 12px;
-      margin-top: 8px;
+      max-width: 180px;
+      padding: 9px 11px;
+      margin-top: 4px;
       margin-left: 0;
-      align-self: flex-start;
+      align-self: end;
       justify-content: center;
       text-align: center;
       line-height: 1.25;
       white-space: normal;
+      position: relative;
+      z-index: 1;
     }
 
     #qr-code {
@@ -1408,6 +1502,30 @@
         flex: 0 0 auto;
         padding: 28px 28px 22px;
         border-right: none;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .nums-intro {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .nums-sub {
+        padding-left: 0;
+        border-left: none;
+      }
+
+      .nums-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+          "big big"
+          "two three"
+          "four four";
+      }
+
+      .logo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .work-col {
