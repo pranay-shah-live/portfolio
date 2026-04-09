@@ -767,7 +767,8 @@
 ════════════════════════════ */
     #p4 {
       padding: 0;
-      flex-direction: row-reverse;
+      flex-direction: row;
+      align-items: stretch;
     }
 
     .work-col {
@@ -776,7 +777,9 @@
       padding: 28px 36px 26px;
       display: flex;
       flex-direction: column;
-      border-left: 1px solid var(--bl);
+      border-left: none;
+      border-right: none;
+      order: 2;
     }
 
     .work-col-hdr {
@@ -900,6 +903,7 @@
       justify-content: flex-start;
       gap: 0;
       border-right: 1px solid rgba(22, 38, 61, .14);
+      order: 1;
     }
 
     .nums-intro {
