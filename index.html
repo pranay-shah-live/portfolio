@@ -769,6 +769,7 @@
       padding: 0;
       display: grid;
       grid-template-columns: minmax(370px, 44%) minmax(0, 56%);
+      grid-template-areas: "nums work";
       align-items: stretch;
     }
 
@@ -779,7 +780,7 @@
       border-left: none;
       border-right: none;
       min-width: 0;
-      grid-column: 2;
+      grid-area: work;
     }
 
     .work-col-hdr {
@@ -902,7 +903,7 @@
       gap: 0;
       border-right: 1px solid rgba(22, 38, 61, .14);
       min-width: 0;
-      grid-column: 1;
+      grid-area: nums;
     }
 
     .nums-intro {
@@ -1401,6 +1402,9 @@
       #p4 {
         display: grid;
         grid-template-columns: 1fr;
+        grid-template-areas:
+          "nums"
+          "work";
       }
 
       .port-wrap {
@@ -1412,7 +1416,7 @@
         flex: 0 0 auto;
         padding: 28px 28px 22px;
         border-right: none;
-        grid-column: auto;
+        grid-area: nums;
       }
 
       .work-col {
@@ -1420,7 +1424,7 @@
         border-left: none;
         border-top: 1px solid var(--bl);
         padding: 24px 28px 30px;
-        grid-column: auto;
+        grid-area: work;
       }
 
       #p1 {
