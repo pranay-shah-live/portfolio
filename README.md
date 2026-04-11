@@ -1,24 +1,41 @@
 # Pranay Shah Portfolio
 
-React + Vite portfolio site designed to complement the Canva resume.
+Static portfolio site for Pranay Shah, marketing & growth expert.
 
-## Development
+This site is a single-page HTML build with custom typography, smooth scrolling, and section-based storytelling for:
+
+- Hero intro
+- Problems / what I solve
+- Skills
+- Work experience
+- Clients I’ve worked with
+- Contact and resume actions
+
+## What’s included
+
+- `index.html` - the main portfolio page
+- `Pranay_Shah_Resume_2_0.pdf` - resume download asset
+- `pranay-shah.vcf` - contact card download asset
+- `public/fonts/` - local font files used by the site
+
+## View locally
+
+Open `index.html` directly in a browser, or serve the folder with any static server.
+
+### Optional local server
 
 ```bash
-npm install
-npm run dev
+python3 -m http.server 4173
 ```
 
-## Production build
+Then open:
 
-```bash
-npm run build
+```text
+http://localhost:4173
 ```
 
-## GitHub Pages build
+## Notes
 
-Build with a repository base path when deploying to GitHub Pages project hosting:
-
-```bash
-GITHUB_PAGES=true VITE_BASE_PATH=/your-repo-name/ npm run build
-```
+- The site is designed to be responsive and mobile-friendly.
+- The page uses local assets in this repository for the resume, vCard, and fonts.
+- No framework-specific setup is required to view the page.
