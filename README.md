@@ -14,7 +14,7 @@ This site is a single-page HTML build with custom typography, smooth scrolling, 
 ## What’s included
 
 - `index.html` - the main portfolio page
-- `Pranay_Shah_Resume_2_0.pdf` - resume download asset
+- `Reminder Need to schedule interview with this candidate.pdf` - resume download asset
 - `pranay-shah.vcf` - contact card download asset
 - `public/fonts/` - local font files used by the site
 
